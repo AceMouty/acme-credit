@@ -3,9 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+// Custom Components
+import { LoanApplicationComponent } from "./components/loan-application/loanApplication.component"
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoanApplicationComponent
   ],
   imports: [
     BrowserModule

@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Custom Components
-import { LoanApplicationComponent } from "./components/loan-application/loanApplication.component"
+import { LoanApplicationComponent } from "./components/loan-application/loanApplication.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { LoanApplicationComponent } from "./components/loan-application/loanAppl
     LoanApplicationComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

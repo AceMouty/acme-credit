@@ -5,5 +5,5 @@ export interface LoanApplication {
     applicantName: string,
     applicantEmail: string,
     applicantPhoneNumber: string,
-    loanAmount: number
+    loanAmount: string
 }

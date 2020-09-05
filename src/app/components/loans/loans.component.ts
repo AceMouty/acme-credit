@@ -9,6 +9,7 @@ import { LoanApplication } from "../../interfaces/loanApplication"
 })
 export class LoansComponent implements OnInit {
 
+    displayedColumns: string[] = ["name", "email", "phoneNumber", "loanAmount", "edit"]
     loans: LoanApplication[];
 
     constructor(private loanService: LoanApplicationService) { }

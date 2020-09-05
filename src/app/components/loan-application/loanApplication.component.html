@@ -1,3 +1,32 @@
-<div>
+<div class="component-wrapper">
     <h2>{{ name }}</h2>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Ex. John Doe" ngModel name="applicantName" required #applicantName="ngModel">
+            <mat-error *ngIf="!applicantName.valid && applicantName.touched">
+                A name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Ex. JohnDoe@gmail.com" ngModel name="applicantEmail" email required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="tel" placeholder="Ex. 000-867-5309" ngModel name="applicantPhoneNumber" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Loan Amount</mat-label>
+            <input matInput type="number" step="any" required name="applicantLoanAmount">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">Submit</button>
+
+    </form>
+
 </div>

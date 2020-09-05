@@ -1,0 +1,10 @@
+.component-wrapper {
+    padding: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}

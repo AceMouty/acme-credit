@@ -4,9 +4,14 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms"
 
 import { AppComponent } from './app.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 // Custom Components
 import { LoanApplicationComponent } from "./components/loan-application/loanApplication.component";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { LoansComponent } from "./components/loans/loans.component"
+
+// Services
+import { LoanApplicationService } from "./services/loanApplications.service"
 
 // Material Components
 import { MatFormFieldModule } from "@angular/material/form-field"
@@ -16,7 +21,8 @@ import { MatButtonModule } from "@angular/material/button"
 @NgModule({
   declarations: [
     AppComponent,
-    LoanApplicationComponent
+    LoanApplicationComponent,
+    LoansComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,9 @@ import { MatButtonModule } from "@angular/material/button"
     MatInputModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [
+    LoanApplicationService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

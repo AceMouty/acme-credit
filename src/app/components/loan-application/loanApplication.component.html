@@ -12,20 +12,35 @@
 
         <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Ex. JohnDoe@gmail.com" ngModel name="applicantEmail" email required>
+            <input matInput placeholder="Ex. JohnDoe@gmail.com" ngModel name="applicantEmail" email required
+                #applicantEmail="ngModel">
+
+            <!-- input touched and left empty -->
+            <!-- <mat-error *ngIf="applicantEmail.touched && !">
+                A email is <strong>required</strong>
+            </mat-error> -->
+
+            <mat-error *ngIf="!applicantEmail.valid">
+                Please enter a <strong>valid</strong> email
+            </mat-error>
+
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Phone Number</mat-label>
-            <input matInput type="tel" placeholder="Ex. 000-867-5309" ngModel name="applicantPhoneNumber" required>
+            <input matInput type="tel" pattern='\d{3}[\-]\d{3}[\-]\d{4}' placeholder="Ex. 000-867-5309" ngModel
+                name="applicantPhoneNumber" required #applicantPhoneNumber="ngModel">
+            <mat-error *ngIf="!applicantPhoneNumber.valid && applicantPhoneNumber.touched">
+                Please enter a phone number in the format of <strong>000-000-1234</strong>
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Loan Amount</mat-label>
-            <input matInput type="number" step="any" required name="applicantLoanAmount">
+            <input matInput type="number" min="0" step="any" required name="applicantLoanAmount">
         </mat-form-field>
 
-        <button mat-raised-button color="primary">Submit</button>
+        <button mat-raised-button color="primary" [disabled]="!f.valid">Submit</button>
 
     </form>
 

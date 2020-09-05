@@ -15,11 +15,6 @@
             <input matInput placeholder="Ex. JohnDoe@gmail.com" ngModel name="applicantEmail" email required
                 #applicantEmail="ngModel">
 
-            <!-- input touched and left empty -->
-            <!-- <mat-error *ngIf="applicantEmail.touched && !">
-                A email is <strong>required</strong>
-            </mat-error> -->
-
             <mat-error *ngIf="!applicantEmail.valid">
                 Please enter a <strong>valid</strong> email
             </mat-error>

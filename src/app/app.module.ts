@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { LoanApplicationComponent } from "./components/loan-application/loanApplication.component";
 import { LoansComponent } from "./components/loans/loans.component"
 import { NavbarComponent } from "./components/navbar/navbar.component"
+import { LoanEditorComponent } from "./components/loan-editor/loanEditor.component"
 
 // Services
 import { LoanApplicationService } from "./services/loanApplications.service"
@@ -26,6 +27,7 @@ import { MatToolbarModule } from "@angular/material/toolbar"
     LoanApplicationComponent,
     LoansComponent,
     NavbarComponent,
+    LoanEditorComponent,
   ],
   imports: [
     BrowserModule,

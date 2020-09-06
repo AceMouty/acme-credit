@@ -22,6 +22,10 @@ import { MatButtonModule } from "@angular/material/button"
 import { MatTableModule } from "@angular/material/table";
 import { MatToolbarModule } from "@angular/material/toolbar"
 
+// In Memory Web API
+import { InMemoryServer } from "./services/inMemoryServer.service"
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,10 +45,12 @@ import { MatToolbarModule } from "@angular/material/toolbar"
     MatTableModule,
     AppRoutingModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryServer)
   ],
   providers: [
     LoanApplicationService,
+    InMemoryServer
   ],
   bootstrap: [AppComponent]
 })

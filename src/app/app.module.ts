@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms"
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module'
+import { HttpClientModule } from "@angular/common/http"
 
 // Custom Components
 import { LoanApplicationComponent } from "./components/loan-application/loanApplication.component";
@@ -20,6 +21,10 @@ import { MatInputModule } from "@angular/material/input"
 import { MatButtonModule } from "@angular/material/button"
 import { MatTableModule } from "@angular/material/table";
 import { MatToolbarModule } from "@angular/material/toolbar"
+
+// In Memory Web API
+import { InMemoryServer } from "./services/inMemoryServer.service"
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 @NgModule({
   declarations: [
@@ -39,10 +44,13 @@ import { MatToolbarModule } from "@angular/material/toolbar"
     MatButtonModule,
     MatTableModule,
     AppRoutingModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryServer)
   ],
   providers: [
     LoanApplicationService,
+    InMemoryServer
   ],
   bootstrap: [AppComponent]
 })

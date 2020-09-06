@@ -15,6 +15,7 @@ import { LoanApplication } from "../../interfaces/loanApplication"
 })
 export class LoanEditorComponent implements OnInit {
 
+    // loans: LoanApplication[];
     loan: LoanApplication;
 
     constructor(
@@ -29,14 +30,16 @@ export class LoanEditorComponent implements OnInit {
 
     getApplication(): void {
 
-        const id: number = Number(this.route.snapshot.paramMap.get("id"))
+        const id: string = this.route.snapshot.paramMap.get("id")
         this.loanService.getApplication(id)
-            .subscribe(loan => this.loan = loan)
+            .subscribe(loanData => {
+                this.loan = loanData
+                console.log(this.loan)
+            })
     }
 
     onSubmit(): void {
-        console.log(this.loan)
         this.loanService.updateLoan(this.loan)
-        this.location.back();
+            .subscribe(_ => this.location.back())
     }
 }

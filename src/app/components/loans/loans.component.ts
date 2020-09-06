@@ -20,6 +20,9 @@ export class LoansComponent implements OnInit {
 
     getLoans(): void {
         this.loanService.getApplications()
-            .subscribe(loans => this.loans = loans)
+            .subscribe(loans => {
+                this.loans = loans
+                console.log(loans)
+            })
     }
 }

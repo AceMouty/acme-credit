@@ -21,6 +21,7 @@ export class LoanApplicationComponent {
         newApplication.id = uuid();
 
         this.loanService.createApplication(formObj.value)
+            .subscribe(res => console.log(res))
         formObj.resetForm()
 
     }

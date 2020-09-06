@@ -1,6 +1,6 @@
 <div>
     <h2>Loan Editor</h2>
-    <form #f="ngForm" (ngSubmit)="onSubmit()">
+    <form *ngIf="loan" #f="ngForm" (ngSubmit)="onSubmit()">
 
         <mat-form-field appearance="fill">
             <mat-label>Name</mat-label>
@@ -34,8 +34,8 @@
 
         <mat-form-field appearance="fill">
             <mat-label>Loan Amount</mat-label>
-            <input matInput type="number" min="0" step="any" [(ngModel)]="loan.loanAmount" value="loan.loanAmount"
-                required name="applicantLoanAmount">
+            <input matInput type="text" inputmode="numeric" pattern="[0-9]*[.,]?\.[0-9][0-9]"
+                [(ngModel)]="loan.loanAmount" value="loan.loanAmount" required name="applicantLoanAmount">
         </mat-form-field>
 
         <button mat-raised-button color="primary" [disabled]="!f.valid">Submit</button>

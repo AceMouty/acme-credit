@@ -1,6 +1,13 @@
-# AcmeCredit
+# Acme Credit
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
+![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
+![Angular](https://img.shields.io/badge/Angular-8.3.0-red)
+
+## Tech Stack
+
+### [Angular](https://angular.io/)
+
+### [Material Angular](https://material.angular.io/)
 
 ## Development server
 

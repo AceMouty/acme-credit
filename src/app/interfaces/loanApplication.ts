@@ -1,7 +1,7 @@
 
 // Describe the shape of ALL loan applications
 export interface LoanApplication {
-    id: string,
+    loanId: string,
     applicantName: string,
     applicantEmail: string,
     applicantPhoneNumber: string,

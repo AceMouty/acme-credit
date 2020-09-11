@@ -3,7 +3,6 @@ import { LoanApplicationService } from "../../services/loanApplications.service"
 import { LoanApplication } from "../../interfaces/loanApplication"
 // Temp import
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import axios from "axios"
 
 @Component({
     selector: "app-loans",

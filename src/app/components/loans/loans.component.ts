@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core"
 import { LoanApplicationService } from "../../services/loanApplications.service"
 import { LoanApplication } from "../../interfaces/loanApplication"
+// Temp import
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import axios from "axios"
 
 @Component({
     selector: "app-loans",
@@ -12,7 +15,7 @@ export class LoansComponent implements OnInit {
     displayedColumns: string[] = ["name", "email", "phoneNumber", "loanAmount", "edit"]
     loans: LoanApplication[];
 
-    constructor(private loanService: LoanApplicationService) { }
+    constructor(private loanService: LoanApplicationService, private http: HttpClient) { }
 
     ngOnInit() {
         this.getLoans()
@@ -20,9 +23,9 @@ export class LoansComponent implements OnInit {
 
     getLoans(): void {
         this.loanService.getApplications()
-            .subscribe(loans => {
-                this.loans = loans
-                console.log(loans)
+            .subscribe(res => {
+                console.log("LOG FROM THE COMPONENT: ", res)
+                this.loans = res
             })
     }
 }

@@ -46,11 +46,11 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     AppRoutingModule,
     MatToolbarModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryServer)
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryServer)
   ],
   providers: [
     LoanApplicationService,
-    InMemoryServer
+    // InMemoryServer
   ],
   bootstrap: [AppComponent]
 })

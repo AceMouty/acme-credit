@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: "", redirectTo: "/loans", pathMatch: "full" },
   { path: "loans", component: LoansComponent },
   { path: "loan-application", component: LoanApplicationComponent },
-  { path: "loan-editor/:id", component: LoanEditorComponent },
+  { path: "loan-editor/:loanId", component: LoanEditorComponent },
 ]
 
 @NgModule({

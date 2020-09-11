@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core"
 import { APPLICATIONS } from "../utils/loanApplications";
 import { LoanApplication } from "../interfaces/loanApplication"
 import { Observable, of } from "rxjs"
-import { map, tap } from "rxjs/operators"
+import { map, tap, pluck } from "rxjs/operators"
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -11,7 +11,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class LoanApplicationService {
 
     // URL for Memory server, swap with API when able
-    private baseUrl: string = "api/applications";
+    // private baseUrl: string = "api/applications";
+    private baseUrl: string = "http://localhost:5000/api/loans"
 
     // Header config
     httpOptions = {
@@ -21,28 +22,19 @@ export class LoanApplicationService {
     constructor(private http: HttpClient) { }
 
     getApplications(): Observable<LoanApplication[]> {
-        //TODO: make a network request to get all applications from API
-        // return of(APPLICATIONS)
-        return this.http.get<LoanApplication[]>(this.baseUrl)
+
+        return this.http.get(this.baseUrl)
+        .pipe(pluck("loans"));
     }
 
-    getApplication(id: string): Observable<LoanApplication> {
-        // return of(APPLICATIONS.find(loan => loan.id === id))
-        return this.http.get<LoanApplication>(`${this.baseUrl}/${id}`)
+    getApplication(loanId: string): Observable<LoanApplication> {
+        
+        return this.http.get<LoanApplication>(`${this.baseUrl}/${loanId}`)
     }
 
-    updateLoan(newLoan: LoanApplication): Observable<any> {
-        //TODO: send updated data to the DB and make this func use rxjs
+    updateLoan(updatedLoan: LoanApplication): Observable<any> {
 
-        // APPLICATIONS.forEach(loan => {
-        //     if (loan.id === newLoan.id) {
-        //         console.log("FOUND LOAN", loan)
-        //         loan = { ...newLoan }
-        //         console.log("UPDATED LOAN", loan)
-        //     }
-        // })
-        return this.http.put(this.baseUrl, newLoan, this.httpOptions)
-
+        return this.http.put(this.baseUrl + `/${updatedLoan.loanId}`, updatedLoan, this.httpOptions)
     }
 
     createApplication(appData: LoanApplication): Observable<LoanApplication> {

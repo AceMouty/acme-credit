@@ -30,16 +30,15 @@ export class LoanEditorComponent implements OnInit {
 
     getApplication(): void {
 
-        const id: string = this.route.snapshot.paramMap.get("id")
-        this.loanService.getApplication(id)
+        const loanId: string = this.route.snapshot.paramMap.get("loanId")
+        this.loanService.getApplication(loanId)
             .subscribe(loanData => {
                 this.loan = loanData
-                console.log(this.loan)
             })
     }
 
     onSubmit(): void {
         this.loanService.updateLoan(this.loan)
-            .subscribe(_ => this.location.back())
+            .subscribe( _ => this.location.back())
     }
 }

@@ -18,11 +18,10 @@ export class LoanApplicationComponent {
 
         // construct a payload and add an id field to it
         const newApplication = formObj.value
-        newApplication.id = uuid();
-
-        this.loanService.createApplication(formObj.value)
-            .subscribe(res => console.log(res))
-        formObj.resetForm()
+        newApplication.LoanId = uuid();
+        
+        this.loanService.createApplication(newApplication)
+            .subscribe( _ => formObj.resetForm())
 
     }
 }

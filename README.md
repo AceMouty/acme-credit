@@ -1,7 +1,7 @@
 # Acme Credit
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![Angular](https://img.shields.io/badge/Angular-8.3.0-red)
+![Angular](https://img.shields.io/badge/Angular-10.0-red)
 
 ## Tech Stack
 
